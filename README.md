@@ -6,9 +6,9 @@
 **Group No.:** 15  
 
 **Team Members:**  
-- **Taha Asif** (Group Leader) — 2021-EE-074 — Specialization: Computer  
-- **Abad ur Rehman** — 2021-EE-091 — Specialization: Computer  
-- **Muhammad Bilal** — 2021-EE-068 — Specialization: Computer  
+- **Taha Asif**  — 2021-EE-074 
+- **Abad ur Rehman** — 2021-EE-091 
+- **Muhammad Bilal** — 2021-EE-068 
 
 ---
 
