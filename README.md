@@ -1,64 +1,129 @@
-# 💨 Real-Time Smoky Vehicle Detection and License Plate Recognition
+# 🚗 Real-Time Smoky Vehicle Detection and License Plate Recognition  
 
-This project is a real-time smart surveillance system designed to automatically detect vehicles emitting excessive smoke and identify them using License Plate Recognition (LPR). [cite_start]Developed as a Final Year Design Project (FYDP) by a team specializing in Computer Engineering [cite: 13, 16, 17][cite_start], this system aims to assist environmental agencies and law enforcement in tackling air pollution caused by high-emission vehicles[cite: 30, 91].
+**University:** Department of Electrical Engineering, University of Engineering and Technology (UET) Lahore  
+**Supervisor:** Dr. Kashif Javed  
+**Project Type:** Final Year Design Project (FYDP)  
+**Group No.:** 15  
 
-## ⚠️ Problem Statement
+**Team Members:**  
+- **Taha Asif** (Group Leader) — 2021-EE-074 — Specialization: Computer  
+- **Abad ur Rehman** — 2021-EE-091 — Specialization: Computer  
+- **Muhammad Bilal** — 2021-EE-068 — Specialization: Computer  
 
-[cite_start]Air pollution in cities is increasing, and vehicles that release smoke are a major cause[cite: 28]. [cite_start]Current traffic monitoring systems can track vehicles but generally cannot automatically detect smoke emissions or identify vehicles through their license plates[cite: 29]. [cite_start]This means many polluting vehicles go unnoticed [cite: 30][cite_start], as manual checks are time-consuming and impractical for busy roads[cite: 31]. [cite_start]This highlights the need for an automated approach to accurately identify and track smoke-emitting vehicles[cite: 32].
+---
 
-## ✨ Proposed Solution & Objective
+## 📜 Problem Statement  
 
-[cite_start]The objective is to design a system to detect vehicles emitting excessive smoke and identify them using license plate recognition[cite: 38].
+Air pollution in cities is rapidly increasing, and one of the major causes is smoke emitted from vehicles.  
+Most traffic monitoring systems can track vehicles but **cannot automatically detect smoke emissions** or **identify polluting vehicles** through license plates.  
 
-### Process Flow
+This gap leaves many polluting vehicles undetected, making manual checks inefficient and impractical for busy roads.  
+Hence, there is a need for an **automated system** that can detect, recognize, and record smoke-emitting vehicles.
 
-1.  [cite_start]**Capture:** A camera captures real-time video of vehicles[cite: 40, 52].
-2.  [cite_start]**Detection:** A machine learning model detects smoke emissions and identifies license plates[cite: 41, 52].
-3.  [cite_start]**Recognition:** Optical Character Recognition (OCR) technology extracts text from the detected license plates[cite: 42, 52].
-4.  [cite_start]**Reporting:** The system saves the license plate of the smoky vehicle to a CSV file for record-keeping [cite: 43] [cite_start]and sends the processed vehicle data to authorities[cite: 52, 53].
+---
 
-## 🏗️ System Architecture and Technology Stack
+## 💡 Proposed Solution  
 
-[cite_start]The system leverages advanced deep learning models and a robust edge computing platform for real-time performance[cite: 130].
+The objective of this project is to design an **automated real-time system** that:  
+1. Detects vehicles emitting excessive smoke.  
+2. Identifies their license plates using OCR technology.  
+3. Records smoky vehicle details (license plate, date, time) in a CSV file.  
 
-### Hardware Platform
+### **Process Overview**
+- Use a camera to monitor vehicle emissions.  
+- Detect **vehicles** and **smoke** using trained YOLOv8 models.  
+- Detect **license plates** using another YOLOv8 model.  
+- Recognize license plate characters using **EasyOCR**.  
+- Save the detected smoky vehicle’s plate number in a CSV file for record keeping.
 
-* **Edge Device:** **NVIDIA Jetson Nano**
-    * [cite_start]The trained model was deployed on the Jetson Nano as part of Phase II[cite: 129].
-    * [cite_start]This enabled real-time processing directly on the device, eliminating the need for cloud support[cite: 130].
-    * [cite_start]The Jetson Nano performs continuous monitoring and detection using a live camera feed[cite: 131].
-* [cite_start]**Input:** Live Camera Feed (Camera captures video)[cite: 40, 52].
+---
 
-### Software & Models
+## ⚙️ System Architecture  
 
-| Component | Technology | Function | Current Progress |
-| :--- | :--- | :--- | :--- |
-| **Vehicle Detection** | **YOLOv8** | [cite_start]Trained to detect various types of vehicles on the road[cite: 105]. | [cite_start]Completed[cite: 105]. |
-| **Smoke Detection** | **YOLOv8** | [cite_start]Trained to detect smoke emissions from vehicles[cite: 106]. | [cite_start]Completed[cite: 106]. |
-| **License Plate Detection** | **YOLOv8** | [cite_start]Trained to detect vehicle number plates and draw bounding boxes[cite: 107, 108]. | [cite_start]Completed[cite: 107, 108]. |
-| **Character Recognition** | **EasyOCR** | [cite_start]Integrated to extract and recognize alphanumeric characters from detected license plates[cite: 119]. | [cite_start]Completed[cite: 119]. |
-| **Reporting System** | **Python / CSV** | [cite_start]Automatically saves the detected license plate along with the date and time to a CSV file[cite: 126]. | [cite_start]Completed[cite: 126]. |
+### **Block Diagram**
+*(Illustrative representation based on the presentation)*  
+1. **Camera Input** →  
+2. **YOLOv8 Models** for Smoke, Vehicle & License Plate Detection →  
+3. **EasyOCR** for Plate Recognition →  
+4. **CSV Logger** for Record Storage  
 
-## 🚀 Key Progress
+### **Flow Diagram**
+1. Capture live video feed.  
+2. Detect smoke and vehicles in real time.  
+3. When smoke is detected → trigger license plate recognition.  
+4. Save recognized plate data with timestamp.  
+5. Display results on screen and update log file.
 
-* [cite_start]**Data Collection:** Collected initial datasets for vehicle emissions (smoke) and number plates to train the models[cite: 99, 100].
-* [cite_start]**Model Integration:** Combined the models so that when smoke is detected, the system automatically detects and captures the license plate of the vehicle[cite: 123].
-* [cite_start]**Prototype Testing:** Conducted initial tests using both models for real-time smoke detection and number plate identification[cite: 120, 121].
-* [cite_start]**Real-Time Performance:** The system demonstrated reliable real-time performance on the Jetson Nano, making it suitable for compact and energy-efficient surveillance[cite: 132].
+---
 
-## 🎯 Applications
+## 🧠 Model Development  
 
-* [cite_start]**Environmental Monitoring:** Supports real-time tracking of vehicle emissions to improve air quality[cite: 84, 85].
-* [cite_start]**Traffic Law Enforcement:** Automates detection and reporting of violators, assisting traffic authorities in enforcing emission regulations[cite: 86, 91].
-* [cite_start]**Public Health Improvement:** Reduces pollution-related health risks, improving respiratory health and life expectancy[cite: 92, 93].
-* [cite_start]**Smart City Integration:** Integrates seamlessly with existing CCTV infrastructure for city-wide deployment[cite: 94, 95].
+| Task | Model | Description |
+|------|--------|-------------|
+| Vehicle Detection | YOLOv8 | Trained to detect multiple vehicle types. |
+| Smoke Detection | YOLOv8 | Identifies visible smoke emissions from vehicles. |
+| License Plate Detection | YOLOv8 | Detects plate regions for OCR input. |
+| License Plate Recognition | EasyOCR | Extracts alphanumeric characters from detected plates. |
 
-## 👨‍💻 Group Members
+All three models were trained on custom datasets for optimal detection accuracy.
 
-* [cite_start]**Taha Asif** (Group Leader) - 2021-EE-074 (Computer Specialization) [cite: 12, 13]
-* [cite_start]**Abad ur Rehman** - 2021-EE-091 (Computer Specialization) [cite: 14, 15, 16]
-* [cite_start]**Muhammad Bilal** - 2021-EE-068 (Computer Specialization) [cite: 17]
+---
 
-[cite_start]**Project Supervisor:** Dr. Kashif Javed [cite: 5]
-[cite_start]**Department:** Electrical Engineering, University of Engineering and Technology Lahore [cite: 6]
-```eof
+## 🧩 Integration and Output  
+
+- Real-time pipeline combines all models.  
+- When smoke is detected, the corresponding vehicle’s license plate is automatically captured.  
+- The recognized license plate number, date, and time are **saved in a CSV file**.  
+- System can work on **live streams** or **recorded videos**.
+
+---
+
+## 🧰 Hardware Implementation  
+
+As part of Phase II, the trained model was **deployed on an NVIDIA Jetson Nano**, enabling real-time detection on-device without cloud dependency.  
+Using a connected live camera feed, the Jetson Nano demonstrated **continuous monitoring** and **efficient processing** suitable for compact surveillance units.
+
+---
+
+## 🌍 Applications  
+
+- **Environmental Monitoring:** Real-time tracking of vehicle emissions to improve air quality.  
+- **Traffic Law Enforcement:** Automated reporting of violators to authorities.  
+- **Public Health:** Reduction of pollution-related health risks.  
+- **Smart City Integration:** Compatible with existing CCTV infrastructure for large-scale deployment.
+
+---
+
+## 🗓️ Project Timeline (Gantt Overview)  
+The project progressed through these key phases:  
+1. Data Collection  
+2. Model Training  
+3. Model Integration  
+4. Real-Time Testing  
+5. Hardware Deployment  
+6. Documentation & Presentation  
+
+---
+
+## 📚 References  
+
+1. [IQAir – 2023 World Air Quality Report](https://www.iqair.com/world-most-polluted-cities)  
+2. [The News International – Lahore AQI](https://www.thenews.com.pk/latest/1255848-lahore-records-worlds-worst-air-pollution-level-as-aqi-crosses-600)  
+3. [Startup Pakistan – Smog in Pakistan: Impact and Solutions](https://startuppakistan.com.pk/smog-in-pakistan-impact)  
+4. [YOLOv4 Paper – J. Redmon & A. Farhadi](https://arxiv.org/abs/2004.10934)  
+5. [Tesseract OCR Engine](https://github.com/tesseract-ocr)  
+6. [NVIDIA Jetson Nano Developer Kit](https://developer.nvidia.com/embedded/jetson-nano-developer-kit)  
+7. [WHO – Air Quality and Health](https://www.who.int/health-topics/air-pollution)  
+8. [Smart Cities World – AI-Driven Environmental Monitoring](https://www.smartcitiesworld.net)  
+9. [Iqbal, M. & Siddiqui, S. (2021). AI-based Traffic Surveillance for Monitoring Vehicular Emissions. *Journal of Environmental Engineering.*](https://www.researchgate.net/publication/366644990_Monitoring_Vehicle_Pollution_and_Fuel_Consumption_Based_on_AI_Camera_System_and_Gas_Emission_Estimator_Model)
+
+---
+
+## 🧾 License  
+This project is developed as part of the **Final Year Design Project (FYDP)** at **UET Lahore**.  
+All rights reserved © 2025 — Group 15.
+
+---
+
+## ✨ Acknowledgements  
+Special thanks to **Dr. Kashif Javed** for his supervision and guidance, and to the **Department of Electrical Engineering, UET Lahore** for their support and resources.
