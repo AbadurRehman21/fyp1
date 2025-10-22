@@ -40,13 +40,6 @@ The objective of this project is to design an **automated real-time system** tha
 
 ## ⚙️ System Architecture  
 
-### **Block Diagram**
-*(Illustrative representation based on the presentation)*  
-1. **Camera Input** →  
-2. **YOLOv8 Models** for Smoke, Vehicle & License Plate Detection →  
-3. **EasyOCR** for Plate Recognition →  
-4. **CSV Logger** for Record Storage  
-
 ### **Flow Diagram**
 1. Capture live video feed.  
 2. Detect smoke and vehicles in real time.  
@@ -92,18 +85,7 @@ Using a connected live camera feed, the Jetson Nano demonstrated **continuous mo
 - **Public Health:** Reduction of pollution-related health risks.  
 - **Smart City Integration:** Compatible with existing CCTV infrastructure for large-scale deployment.
 
----
 
-## 🗓️ Project Timeline (Gantt Overview)  
-The project progressed through these key phases:  
-1. Data Collection  
-2. Model Training  
-3. Model Integration  
-4. Real-Time Testing  
-5. Hardware Deployment  
-6. Documentation & Presentation  
-
----
 
 ## 📚 References  
 
